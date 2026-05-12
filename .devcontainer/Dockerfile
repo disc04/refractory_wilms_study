@@ -4,7 +4,7 @@ ARG USERNAME=pycharm
 ARG USER_UID=1000
 ARG USER_GID=1000
 
-# System packages + Node.js (needed for Claude CLI)
+# System packages + Node.js
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
@@ -13,9 +13,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nodejs \
     npm \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Claude CLI
-RUN npm install -g @anthropic-ai/claude-code
 
 # Rename existing ubuntu user (UID 1000) to pycharm
 RUN usermod -l $USERNAME -d /home/$USERNAME -m ubuntu \

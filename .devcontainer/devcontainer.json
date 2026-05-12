@@ -1,5 +1,5 @@
 {
-  "name": "Refractory Wilms Study",
+  "name": "Refractory Wilms Tumor Study",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
@@ -10,7 +10,6 @@
     "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
   },
   "mounts": [
-    "source=${localEnv:HOME}/.claude,target=/home/pycharm/.claude,type=bind",
     "source=${localEnv:HOME}/.zsh_history,target=/home/pycharm/.zsh_history,type=bind"
   ],
   "remoteEnv": {

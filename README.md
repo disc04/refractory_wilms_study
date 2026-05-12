@@ -48,69 +48,6 @@ Using the NCI TARGET-WT RNA-seq cohort (136 samples), we characterised three com
 
 ---
 
-## Quickstart
-
-### Prerequisites
-
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for devcontainer) or conda/mamba for local setup
-
-### 1. Clone and open in devcontainer
-
-```bash
-git clone <repo-url>
-```
-
-Open in VS Code → **Reopen in Container**, or in PyCharm via devcontainer support (2022.3+). The `postCreateCommand` provisions the full conda environment automatically — no manual setup needed.
-
-### 2. Download the GDC data
-
-```bash
-cd scripts/python
-python 00a_download_gdc_data.py
-```
-
-Queries the GDC REST API and downloads all open-access TARGET-WT files (~3 GB, 30–60 min depending on bandwidth) into the correct directory structure. Safe to re-run — existing files are skipped. Also generates `data/processed/tables/sample_metadata.csv`.
-
-No `.env` file is required — no secrets are used.
-
-### 3. Run the analysis pipeline
-
-From the same `scripts/python/` directory:
-
-```bash
-python 00b_build_counts_matrix_and_annotation.py
-python 01_clinical_eda.py
-python 02_rnaseq_preprocessing.py
-python 03_rnaseq_de_histology.py
-python 04_rnaseq_de_relapse.py
-python 05_rnaseq_de_anaplastic_transformation.py
-python 06_pathway_enrichment.py
-python 07_ppi.py
-python 08_druggability.py
-python 09_tf_analysis.py
-```
-
-Outputs: figures → `data/results/figures/` | tables → `data/processed/tables/` | matrices → `data/processed/matrices/`
-
-### Local setup (no Docker)
-
-```bash
-conda env create -f environment.yml
-conda activate project-env
-export PYTHONPATH=/path/to/refractory_wilms_study   # project root must be on PYTHONPATH
-cd scripts/python
-```
-
-### R scripts (somatic mutations, optional)
-
-The R scripts in `scripts/R/` (maftools-based mutation analysis) are kept for reference but are **not part of the main Python analysis pipeline**. To run them, use RStudio directly on your local machine. If you want R available inside the devcontainer, add the following line to `.devcontainer/Dockerfile` before the user setup block — note this significantly increases build time and image size (~400 MB):
-
-```dockerfile
-RUN conda install -y -c conda-forge r-base && conda clean -afy
-```
-
----
-
 ## Results
 
 ### Figure 1 — Cohort Overview
@@ -285,6 +222,9 @@ Studies targeted SPP1 produced by macrophages with small molecule inhibitors [2]
 4. A fourth orthogonal mechanism deserves specific mention: XPO1/exportin-1 inhibition with selinexor. Coutinho et al. previously applied metaVIPER — a mutation-agnostic, network-based protein activity inference — to the TARGET-WT cohort (the same dataset analysed here) and identified XPO1 as the second most aberrantly activated druggable protein in Wilms tumor (97% of samples, NES IQR 6.43–7.85), validated by cell-cycle arrest and apoptosis in WT cell lines, PDX tumor growth abrogation, and a case report of a multiply relapsed Wilms patient with prolonged disease control on selinexor [4]. 
 XPO1 is directly relevant to the AT program through two mechanisms: it exports IκBα (the cytoplasmic NF-κB inhibitor) out of the nucleus, so selinexor-mediated nuclear IκBα retention constitutes a pharmacological flanking approach to suppress the NF-κB core identified here; and it exports TP53 from the nucleus, potentially restoring partial tumor-suppressive activity even in the TP53-mutant context characteristic of AT primary tumors. Selinexor is already in a pediatric clinical trial (NCT02323880) and has demonstrated disease control in exactly the multiply-relapsed Wilms scenario that AT patients face. The cross-cancer NF-κB convergence argues that a basket trial design — enrolling relapsed AT Wilms alongside relapsed neuroblastoma and other pediatric solid tumors with documented NF-κB persister programs — would be scientifically justified and statistically practical given the rarity of each individual histotype.
 
+---
+## Quickstart
+
 ### Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for devcontainer) or conda/mamba for local setup
@@ -304,12 +244,10 @@ cd scripts/python
 python 00a_download_gdc_data.py
 ```
 
-Queries the GDC REST API and downloads open-access TARGET-WT files (~3 GB). Safe to re-run — existing files are skipped. In addition, generates `data/processed/tables/sample_metadata.csv`.
+Queries the GDC REST API and downloads open-access TARGET-WT files (~3 GB). Safe to re-run — existing files are skipped. In addition, it generates `data/processed/tables/sample_metadata.csv`.
 
 
 ### 3. Run the analysis pipeline
-
-From the same `scripts/python/` directory:
 
 ```bash
 python 00b_build_counts_matrix_and_annotation.py
@@ -337,11 +275,15 @@ cd scripts/python
 
 ### R scripts (somatic mutations, optional)
 
-The R scripts in `scripts/R/` (maftools-based mutation analysis) are kept for reference but are **not part of the main Python analysis pipeline**. To run them, use RStudio directly on your local machine. If you want R available inside the devcontainer, add the following line to `.devcontainer/Dockerfile` before the user setup block — note this significantly increases build time and image size (~400 MB):
+The R scripts in `scripts/R/` (maftools-based mutation analysis) are kept for reference but are **not part of the main Python analysis pipeline**. To run them, use RStudio directly on your local machine. If you want R available inside the devcontainer, run Bioconductor Docker Container from the project root:
 
-```dockerfile
-RUN conda install -y -c conda-forge r-base && conda clean -afy
+```bash
+docker run -e PASSWORD=bioc -p 8787:8787 \
+  -v $(pwd)/:/home/rstudio/project \
+  -w /home/rstudio/project \
+  -it bioconductor/bioconductor_docker: RELEASE_3_21
 ```
+Then open RStudio at http://localhost:8787 (user: rstudio, password: bioc) and run the `scripts/R/00_setup_mutations.R` to install the required packages.
 
 ---
 
