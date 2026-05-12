@@ -1,0 +1,34 @@
+name: project-env
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.12
+  # Core scientific stack
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  # Visualisation
+  - matplotlib
+  - seaborn
+  # Dev & utilities
+  - pip
+  - ipython
+  - python-dotenv          # for .env loading in configuration.py
+  - pyyaml
+  # Networking / API calls
+  - requests               # STRING API, ChEMBL API, TRRUST download (scripts 07-09)
+  # Graph analysis
+  - networkx               # PPI network construction and community detection (scripts 07, ppi_plot_utils)
+  # Statistics
+  - statsmodels            # multipletests (FDR correction) in script 09
+  # Excel I/O
+  - openpyxl               # pd.ExcelFile engine in data_utils.load_xlsx (script 00)
+
+  - pip:
+    # Pip-only packages (not available on conda-forge)
+    - pydeseq2             # DESeq2 differential expression (scripts 02-05, de_utils)
+    - gseapy               # ORA and GSEA pathway enrichment (script 06)

@@ -1,0 +1,23 @@
+{
+  "name": "Refractory Wilms Study",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": { "version": "latest" },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/home/pycharm/.claude,type=bind",
+    "source=${localEnv:HOME}/.zsh_history,target=/home/pycharm/.zsh_history,type=bind"
+  ],
+  "remoteEnv": {
+    "PYTHONPATH": "${containerWorkspaceFolder}"
+  },
+  "initializeCommand": ".devcontainer/init.sh",
+  "postCreateCommand": "conda env update -f environment.yml --prune && conda init bash && conda init zsh && echo 'conda activate project-env' >> /home/pycharm/.zshrc && echo 'conda activate project-env' >> /home/pycharm/.bashrc",
+  "remoteUser": "pycharm",
+  "containerUser": "pycharm"
+}
