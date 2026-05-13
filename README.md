@@ -223,7 +223,7 @@ Furthermore, selinexor exports TP53 from the nucleus, potentially restoring part
    Given existing clinical availability and the direct presence of IL6 and PTGS2 in the AT cytokine module, other options include anti-IL-6 axis blockade (siltuximab, tocilizumab) and COX-2 inhibition (celecoxib), but should be viewed as partial interventions against a redundant network rather than root-cause treatment.
 
 2. The SPP1 (Osteopontin) bottleneck, NR4A1(Nur77), and RUNX1(AML1) represent AT-specific network nodes absent from the de novo DAWT program, offering a therapeutic window that could spare the proliferative axis selectively. 
-Osteoponin is a multifunctional protein acting as a promising therapeutic target to inhibit cancer progression and metastasis in pancreatic, prostate, esophageal squamous cell carcinoma (ESCC), and cervical cancers. 
+Osteopontin is a multifunctional protein acting as a promising therapeutic target to inhibit cancer progression and metastasis in pancreatic, prostate, esophageal squamous cell carcinoma (ESCC), and cervical cancers. 
 Studies targeted SPP1 produced by macrophages with small molecule inhibitors [2] and antibodies showed significantly improved survival in preclinical models.
 
 3. **Niclosamide** — with its multi-target profile across STAT3 inhibition, S100A10 suppression, and Wnt blockade — engages three mechanisms active in the AT resistance program and merits formal evaluation.   
