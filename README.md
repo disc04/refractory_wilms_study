@@ -1,4 +1,4 @@
-# Acquired Anaplastic Transformation in Wilms Tumor Engages a Unique NF-κB/EMT Program Distinct from De Novo Anaplastic Disease
+# Acquired Anaplastic Transformation in Wilms Tumor Engages an Unique NF-κB/EMT Program Distinct from De Novo Anaplastic Disease
 
 NCI GDC TARGET-WT (n = 136 samples) | RNA-seq | Somatic Mutations (n = 42 samples)
 
