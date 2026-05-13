@@ -191,23 +191,23 @@ The genetic architecture of the AT event itself — whether the TP53 mutation 
 
 The presented analysis demonstrates that AT in Wilms tumor is neither a later-arriving form of de novo anaplastic disease, nor an transcriptional extreme of standard FHWT relapse — it is a biologically independent entity that happens to converge on the same histological endpoint through a largely non-overlapping molecular route. The AT-specific program is dominated by NF-κB/AP-1- driven inflammatory reprogramming and epithelial-mesenchymal transition — an activating transcriptional event that simultaneously upregulates ABCB1/MDR1 (efflux-based chemoresistance), IL6/PTGS2 (inflammatory amplification), and SNAI1/TWIST1 (EMT identity shift), with RELA, NFKB1, and JUN as the primary upstream drivers. This conclusion has direct therapeutic implications: treatment strategies designed for de novo DAWT, which is driven by a MYC/E2F/mTOR proliferative axis, cannot be assumed to address the acquired anaplastic program. 
 
-**NF-κB as a conserved driver of pediatric therapy resistance.** 
+**NF-κB as a conserved driver of pediatric therapy resistance** 
 
 The centrality of NF-κB in the AT program is not an isolated observation, it is in line with the previous single-cell studies. For example, a recent study by Grossmann et al., conducted on 20 matched diagnosis/post-induction surgery neuroblastoma pairs, identified four chemotherapy persister meta-modules, of which two — NFκB/stemness and NFκB/stress — are NF-κB-dominant and together account for the majority of residual disease cells [1]. Functional validation using CRISPR knockout of RelA and pharmacological IKKβ inhibition substantially reduced persister cell survival, establishing NF-κB not merely as a transcriptional correlate but as a causal dependency in pediatric solid tumor chemoresistance. The convergence of NF-κB-centered resistance across two histologically and developmentally distinct pediatric cancers — neuroblastoma and Wilms tumor — argues that this pathway represents a conserved vulnerability in childhood solid tumors, and strengthens the rationale for prospective NF-κB-targeting strategies in both diseases. 
 
-**NF-κB/EMT mechanistic coupling.** 
+**NF-κB/EMT mechanistic coupling** 
 
 A key architectural feature of the AT program is that NF-κB does not merely activate cytokine signaling — it directly transcribes the master EMT regulators SNAI1 and TWIST1, wiring inflammatory reprogramming and mesenchymal identity shift together at the transcriptional level. This topology recapitulates the neuroblastoma persister data, where the transcription factor PRRX1 couples the NFκB/stemness module to a mesenchymal cell state, and where CD44 — a canonical NF- κB/stemness surface marker and a direct DEG in our AT program — is among the highest- expressed surface antigens in persister cells [1]. The parallel coupling of NF-κB activity to a mesenchymal/stem-like identity across two pediatric cancers suggests a shared regulatory logic: NF-κB activation at relapse is not simply inflammatory noise but is mechanistically linked to the acquisition of a therapy-refractory, dedifferentiated phenotype. 
 
-**Opposing metabolic trajectories: KRAS inversion and MYC suppression.** 
+**Opposing metabolic trajectories: KRAS inversion and MYC suppression** 
 
 The hallmarks cross-comparison reveals an unexpected feature of the AT transcriptome: KRAS Signaling is downregulated in both primary FHWT and primary DAWT tumors, but specifically inverts to strong upregulation at AT transformation — a sign-switching pattern not observed in any other comparison. This mirrors findings from Grossmann et al., where MYC(N) target gene activity is suppressed during the chemotherapy persistence phase and is only restored at relapse [1]. Both observations point to a shared principle: the transition from treatment-sensitive primary disease to refractory residual disease involves a deliberate shift away from high-proliferative, oncogene-driven growth toward a slower-cycling, stress-adapted state with NF-κB at its core. In AT Wilms tumor, the KRAS axis inversion may represent the transcriptional signature of this metabolic and proliferative deceleration occurring in real time at recurrence. 
 
-**Tumor microenvironment as a NF-κB amplifier**. 
+**Tumor microenvironment as a NF-κB amplifier** 
 
 Our network analysis identifies the AT cytokine module (C1) as a near-clique of co-regulated NF-κB outputs — IL6, CXCL1/2/3/8, CCL2/20, IL1B, PTGS1/2 — with SPP1/osteopontin as the structural bottleneck bridging this cytokine core to the EMT and ECM modules. This architecture is consistent with a paracrine amplification loop in which tumor-cell NF-κB activity drives cytokine secretion that recruits and activates cancer-associated fibroblasts (CAFs) and tumor-associated macrophages (TAMs), which in turn sustain NF-κB activity in tumor cells through reciprocal signaling, further supporting the  CAF/TAM paracrine loop mechanism described in neuroblastoma persisters [1]. Given the fact that our AT cohort consists of bulk RNA-seq data, SPP1 — which is secreted by both tumor cells and macrophages — may mark the interface between tumor-intrinsic NF-κB activity and microenvironmental amplification. Resolving this ambiguity would require spatial transcriptomics or scRNA-seq on AT recurrent specimens, currently unavailable in the TARGET-WT dataset. 
 
-**Therapeutic implications.** 
+**Therapeutic implications** 
 
 The mechanistic parallels with neuroblastoma persister biology reinforce and extend the therapeutic priorities identified here. 
 
